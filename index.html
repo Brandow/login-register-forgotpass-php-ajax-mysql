@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Brandow Figueira">
+
+    <title>Sistema de Login/Registro/Recuperar Senha - PHP,Mysql,Ajax</title>
+
+	<link rel="shortcut icon" href="/assets/img/favicon.png">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+  </head>
+<body>
+	<div class="wrapper">
+		<header class="main-header main-header-01 headroom navbar-light fixed-top default-fixed-header navbar-transparent headroom--not-bottom headroom--not-top headroom--unpinned">
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<a class="navbar-brand header-navbar-brand font-16 dt" href="../home/index.html">
+						<img src="/assets/img/logo.png" width="50" />
+						<span class="text-black poppins">Brandow Figueira</span>
+					</a>
+					<div class="nav flex-column flex-lg-row d-none d-lg-flex">
+						<ul class="navbar-nav ms-auto align-items-center">
+							<li class="nav-item">
+								<div class="only-icon only-icon-lg text-facebook">
+									<i class="lab la-facebook-square"></i>
+								</div>
+							</li>
+							<li class="nav-item">
+								<div class="only-icon only-icon-lg text-linkedin">
+									<i class="lab la-linkedin"></i>
+								</div>
+							</li>
+							<li class="nav-item">
+								<div class="only-icon only-icon-lg text-instagram">
+									<i class="lab la-instagram"></i>
+								</div>
+							</li>
+							<li class="nav-item">
+								<div class="only-icon only-icon-lg text-black">
+									<i class="lab la-github"></i>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<main>
+			<section class="effect-section bg-gray-100">
+				<div class="effect bg-primary effect-skew"></div>
+				<div class="particles-box" id="particles-box">
+				   <canvas class="particles-js-canvas-el" width="1349" height="746" style="width: 100%; height: 100%;"></canvas>
+				</div>
+				<div class="container position-relative">
+				   <div class="row min-vh-100 align-items-center py-5">
+						<div class="col-lg-6 col-xl-6 text-center">
+							<img class="left-login-img" src="assets/img/login.png" title="" alt="">
+						</div>
+						<div class="col-12 col-lg-5 col-xl-4 py-8 ml-5 animate__animated animate__fadeInRight" id="form_login">
+							<h1 class="text-center text-white mb-1">Login</h1>
+							<div class="col-12 text-center">
+								<span class="text-white small">Não possui login?</span>
+								<a href="#" id="btn-registro" class="text-white small text-decoration-underline">Registre-se</a>
+							</div>
+							<form id="login-form">
+								<div class="form-group mb-3">
+									<label class="form-label rd-input-label focus not-empty text-white">E-mail</label>
+									<input type="email" name="email" class="form-control" placeholder="email@exemplo.com">
+								</div>
+								<div class="form-group mb-3">
+									<label class="form-label rd-input-label focus not-empty text-white">Senha</label> 
+									<input type="password" name="senha" class="form-control">
+								</div>
+								<div class="row">
+									<div class="col-sm-5 my-2">
+										<button type="submit" class="btn btn-primary border w-100" href="#">
+											<span class="btn-inner-text">Entrar</span>
+										</button>
+									</div>
+									<div class="col-sm-6 ml-2 mt-3">
+										<a href="#" class="text-white" id="btn-esqsenha">Esqueci a senha.</a>
+									</div>
+								</div>
+							</form>
+						</div>
+
+						<div class="col-12 col-lg-5 col-xl-4 py-8 ml-5" style="display: none" id="form_registro">
+							<h1 class="text-center text-white mb-1">Registro</h1>
+							<div class="col-12 text-center">
+								<span class="text-white small">Já possui login?</span>
+								<a href="#" id="btn-login" class="text-white small text-decoration-underline">Entrar</a>
+							</div>
+							<form id="registro-form">
+								<div class="form-group mb-3">
+									<label class="form-label rd-input-label focus not-empty text-white">E-mail</label>
+									<input type="email" class="form-control" name="email" placeholder="email@exemplo.com">
+								</div>
+								<div class="form-group mb-3">
+									<label class="form-label rd-input-label focus not-empty text-white">Senha</label> 
+									<input type="password" name="senha" class="form-control">
+								</div>
+								<div class="form-group mb-3">
+									<label class="form-label rd-input-label focus not-empty text-white">Confirme a senha</label> 
+									<input type="password" name="re_senha" class="form-control">
+								</div>
+								<div class="row">
+									<div class="col-sm-5 my-2">
+										<button type="submit" class="btn btn-primary border w-100" href="#">
+											<span class="btn-inner-text">Entrar</span>
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+
+						<div class="col-12 col-lg-5 col-xl-4 py-8 ml-5" style="display: none" id="form_esqsenha">
+							<h1 class="text-center text-white mb-1">Esqueci a senha</h1>
+							<div class="col-12 text-center">
+								<span class="text-white small">Retornar a tela de </span>
+								<a href="#" id="btn-login2" class="text-white small text-decoration-underline">login.</a>
+							</div>
+							<form id="esqsenha-form">
+								<div class="form-group mb-3">
+									<label class="form-label rd-input-label focus not-empty text-white">E-mail para recuperação</label>
+									<input type="email" class="form-control" name="email" placeholder="email@exemplo.com">
+								</div>
+								<div class="row">
+									<div class="col-sm-5 my-2">
+										<button type="submit" class="btn btn-primary border w-100" href="#">
+											<span class="btn-inner-text">Enviar</span>
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+
+				   </div>
+				</div>
+				<div class="col-md-6 ml-5 footer-copy">
+					<p class="text-black-85 small">© 2022 Login/Registro/Esqueci a senha | PHP Ajax Mysql | <i class="lab la-github"></i> <a href="https://github.com/Brandow" target="_blank" class="text-black-85 text-decoration-underline">Brandow Figueira</a></p>
+				</div>
+			</section>
+		</main>
+	</div>
+	<script src="./assets/js/jquery-3.5.1.min.js"></script>
+	<script src="./assets/js/bootstrap.min.js"></script>
+	<script src="./assets/js/app.js"></script>
+	<script src="./assets/js/particles.min.js"></script>
+	<script src="./assets/js/particles-app.js"></script>
+	<script src="./assets/js/notyf.min.js"></script>
+</body>
+</html>
