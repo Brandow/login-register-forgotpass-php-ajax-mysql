@@ -1,6 +1,6 @@
 <!-- PROJECT LOGO -->
 <div align="center">
-  <img src="https://i.imgur.com/87TuL0R.png" width="30">
+  <img src="https://i.imgur.com/87TuL0R.png" width="80">
 
   <h4 align="center">Sistema de Login/Cadastro e Esqueci a senha com PHP, MySQL e Ajax</h4>
   <img src="https://img.shields.io/badge/PHP-7.1.26-informational?logo=php&logoColor=white" />
